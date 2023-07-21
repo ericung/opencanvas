@@ -2,26 +2,21 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <meta charset="utf-8" />
-    <title>Gamedev Canvas Workshop</title>
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-        }
-
-        canvas {
-            background: #eee;
-            display: block;
-            margin: 0 auto;
-        }
-    </style>
-</div>
-<div>
-    <canvas id="myCanvas" width="480" height="320"></canvas>
-
-    <script>
-        // JavaScript code goes here
-    </script>
-</div>
+    <div class="row">
+        <div class="col-md-6">
+            <div>
+                <canvas class="left" id="myCanvas" width="480" height="320"></canvas>
+            </div>
+            <div>
+                <button type="submit" onclick="generate()">Generate</button>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div>
+                <iframe id="renderedhtml"></iframe>
+            </div>
+            <div>
+                <textarea id="generatedHtml" style="height: 320px; width: 480px;">Generated Code Will Appear Here</textarea>
+            </div>
+        </div>
+    </div>

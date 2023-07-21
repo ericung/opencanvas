@@ -44,3 +44,22 @@ function getMousePos(canvas, evt) {
         y: evt.clientY - rect.top
     };
 }
+
+function generate() {
+    $.ajax({
+        method: "POST",
+        url: "Home/Generate",
+        data: { rectangles: JSON.stringify(rects) }
+    })
+    .done(function(msg) {
+        $('#generatedHtml').text(msg);
+        const iframe = $('#renderedhtml');
+        iframe.attr('srcdoc', msg);
+
+        const iframeBody = iframe.contents().find('body');
+
+        // Set the iframe's height to the content's height
+        iframe.height(iframeBody.prop('scrollHeight'));
+        iframe.width(iframeBody.prop('scrollWidth'));
+    });
+}
