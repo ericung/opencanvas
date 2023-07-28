@@ -1,4 +1,5 @@
 ﻿var canvas = document.getElementById("myCanvas");
+var generatedHtml = document.getElementById("generatedHtml");
 var ctx = canvas.getContext("2d");
 ctx.font = "30px Arial";
 var x = 0;
@@ -38,6 +39,23 @@ canvas.addEventListener('mouseup', function (evt) {
     draw();
 }, false);
 
+var area = document.getElementById("generatedHtml");
+if (area.addEventListener) {
+    area.addEventListener('input', function () {
+        const iframe = document.getElementById("renderedhtml");
+        iframe.width = "480";
+        iframe.height = "320";
+        iframe.srcdoc = `<!DOCTYPE html><header></header><body>` + document.getElementById("generatedHtml").value + `</body>`;
+    }, false);
+} else if (area.attachEvent) {
+    area.attachEvent('onpropertychange', function () {
+        const iframe = document.getElementById("renderedhtml");
+        iframe.width = "480";
+        iframe.height = "320";
+        iframe.srcdoc = `<!DOCTYPE html><header></header><body>` + document.getElementById("generatedHtml").value + `</body>`;
+    });
+}
+
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillText(message, 10, 50);
@@ -63,6 +81,7 @@ function generate() {
     })
     .done(function(msg) {
         $('#generatedHtml').text(msg);
+        $('#generatedHtml').val(msg);
         const iframe = document.getElementById("renderedhtml");
         iframe.width = "480";
         iframe.height = "320";
