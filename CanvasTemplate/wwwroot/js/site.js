@@ -8,7 +8,6 @@ var rects = [];
 
 canvas.addEventListener('mousemove', function (evt) {
     var mousePos = getMousePos(canvas, evt);
-    message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
 
     draw();
 }, false);
@@ -21,10 +20,21 @@ canvas.addEventListener('mousedown', function (evt) {
 
 canvas.addEventListener('mouseup', function (evt) {
     var mousePos = getMousePos(canvas, evt);
-    rects.push({ x: x, y: y, w: mousePos.x - x, h: mousePos.y - y });
+    var xPos = x;
+    var yPos = y;
+    var wVal = mousePos.x - x;
+    var hVal = mousePos.y - y;
+    if (wVal < 0) {
+        wVal = Math.abs(wVal);
+        xPos = x - wVal;
+    }
+    if (hVal < 0) {
+        hVal = Math.abs(hVal);
+        yPos = y - hVal;
+    }
+    rects.push({ x: xPos, y: yPos, w: wVal, h: hVal });
     x = mousePos.x;
     y = mousePos.y;
-    message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
     draw();
 }, false);
 
@@ -53,13 +63,9 @@ function generate() {
     })
     .done(function(msg) {
         $('#generatedHtml').text(msg);
-        const iframe = $('#renderedhtml');
-        iframe.attr('srcdoc', msg);
-
-        const iframeBody = iframe.contents().find('body');
-
-        // Set the iframe's height to the content's height
-        iframe.height(iframeBody.prop('scrollHeight'));
-        iframe.width(iframeBody.prop('scrollWidth'));
+        const iframe = document.getElementById("renderedhtml");
+        iframe.width = "480";
+        iframe.height = "320";
+        iframe.srcdoc = `<!DOCTYPE html><header></header><body>` + msg + `</body>`;
     });
 }

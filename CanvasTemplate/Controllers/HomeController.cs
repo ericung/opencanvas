@@ -39,7 +39,7 @@ namespace CanvasTemplate.Controllers
             foreach(Rectangle rectangle in data)
             {
                 s += 
-@"<div style=""background-color: black; position: absolute; margin-left: " + rectangle.x + @"; margin-top: " + rectangle.y + @"; width: " + rectangle.w + @"; height:" + rectangle.h + @";""></div>
+@"<div style=""background-color: black; position: absolute; margin-left: " + rectangle.x + @"px; margin-top: " + rectangle.y + @"px; width: " + rectangle.w + @"px; height:" + rectangle.h + @"px;""></div>
 ";
             }
             return Content(s);
