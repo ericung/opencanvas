@@ -83,8 +83,9 @@ function generate() {
         $('#generatedHtml').text(msg);
         $('#generatedHtml').val(msg);
         const iframe = document.getElementById("renderedhtml");
-        iframe.width = "480";
-        iframe.height = "320";
-        iframe.srcdoc = `<!DOCTYPE html><header></header><body>` + msg + `</body>`;
+        iframe.width = "490px";
+        iframe.height = "330px";
+        iframe.border = "1px solid #000000";
+        iframe.srcdoc = msg;
     });
 }

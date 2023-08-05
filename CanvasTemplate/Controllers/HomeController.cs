@@ -35,13 +35,22 @@ namespace CanvasTemplate.Controllers
         public IActionResult Generate(string rectangles)
         {
             List<Rectangle> data = JsonConvert.DeserializeObject<List<Rectangle>>(rectangles ?? String.Empty) ?? new List<Rectangle>();
-            string s = "";
+            string s =
+@"<!DOCTYPE HTML PUBLIC ""-//W3C//DTD HTML 4.01//EN""
+   ""http://www.w3.org/TR/html4/strict.dtd"">
+<html>
+<head>
+</head>
+<body>
+";
             foreach(Rectangle rectangle in data)
             {
                 s += 
 @"<div style=""background-color: black; position: absolute; margin-left: " + rectangle.x + @"px; margin-top: " + rectangle.y + @"px; width: " + rectangle.w + @"px; height:" + rectangle.h + @"px;""></div>
 ";
             }
+            s += @"</body>
+</html>";
             return Content(s);
         }
     }
