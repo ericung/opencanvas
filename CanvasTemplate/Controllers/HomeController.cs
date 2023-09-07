@@ -2,13 +2,28 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Diagnostics;
-using System.Text;
 
 namespace CanvasTemplate.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+
+        private string HEADER = @"<!DOCTYPE HTML PUBLIC ""-//W3C//DTD HTML 4.01//EN""
+   ""http://www.w3.org/TR/html4/strict.dtd"">
+<html>
+<head>
+</head>
+<body>
+";
+
+        private string FOOTER = @"</body>
+</html>";
+        
+        private string RectangleFunction(double x, double y, double w, double h)
+        {
+            return @"<div style=""background-color: black; position: absolute; margin-left: " + x + @"px; margin-top: " + y + @"px; width: " + w + @"px; height:" + h + @"px;""></div>";
+        }
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -35,22 +50,14 @@ namespace CanvasTemplate.Controllers
         public IActionResult Generate(string rectangles)
         {
             List<Rectangle> data = JsonConvert.DeserializeObject<List<Rectangle>>(rectangles ?? String.Empty) ?? new List<Rectangle>();
-            string s =
-@"<!DOCTYPE HTML PUBLIC ""-//W3C//DTD HTML 4.01//EN""
-   ""http://www.w3.org/TR/html4/strict.dtd"">
-<html>
-<head>
-</head>
-<body>
-";
+            string s = HEADER;
+
             foreach(Rectangle rectangle in data)
             {
-                s += 
-@"<div style=""background-color: black; position: absolute; margin-left: " + rectangle.x + @"px; margin-top: " + rectangle.y + @"px; width: " + rectangle.w + @"px; height:" + rectangle.h + @"px;""></div>
-";
+                s += RectangleFunction(rectangle.x, rectangle.y, rectangle.w, rectangle.h);
             }
-            s += @"</body>
-</html>";
+
+            s += FOOTER;
             return Content(s);
         }
     }
