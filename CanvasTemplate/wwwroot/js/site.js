@@ -25,6 +25,7 @@ canvas.addEventListener('mouseup', function (evt) {
     var yPos = y;
     var wVal = mousePos.x - x;
     var hVal = mousePos.y - y;
+    var idRects = rects.length;
     if (wVal < 0) {
         wVal = Math.abs(wVal);
         xPos = x - wVal;
@@ -33,7 +34,7 @@ canvas.addEventListener('mouseup', function (evt) {
         hVal = Math.abs(hVal);
         yPos = y - hVal;
     }
-    rects.push({ x: xPos, y: yPos, w: wVal, h: hVal });
+    rects.push({ x: xPos, y: yPos, w: wVal, h: hVal, id: idRects });
     x = mousePos.x;
     y = mousePos.y;
     draw();
@@ -88,4 +89,20 @@ function generate() {
         iframe.border = "1px solid #000000";
         iframe.srcdoc = msg;
     });
+}
+
+function reverse() {
+    const iframe = document.getElementById("renderedhtml");
+    jsonFromSrc = html2json(iframe.srcdoc);
+    rects = [];
+
+    for (let i = 0; i < jsonFromSrc.length; i++) {
+        var w = jsonFromSrc[i].width;
+        var h = jsonFromSrc[i].height;
+        var x = jsonFromSrc[i].marginLeft;
+        var y = jsonFromSrc[i].marginTop;
+        rects.push({ x: x, y: y, w: w, h: h, id: i });
+    }
+
+    draw();
 }

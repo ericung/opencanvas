@@ -1,7 +1,11 @@
 ﻿using CanvasTemplate.Models;
+using Microsoft.Ajax.Utilities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.FileSystemGlobbing.Internal;
 using Newtonsoft.Json;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
+using System.Web.Helpers;
 
 namespace CanvasTemplate.Controllers
 {
@@ -20,9 +24,9 @@ namespace CanvasTemplate.Controllers
         private string FOOTER = @"</body>
 </html>";
         
-        private string RectangleFunction(double x, double y, double w, double h)
+        private string RectangleFunction(double x, double y, double w, double h, int id)
         {
-            return @"<div style=""background-color: black; position: absolute; margin-left: " + x + @"px; margin-top: " + y + @"px; width: " + w + @"px; height:" + h + @"px;""></div>";
+            return @"<div id=""" + id + @"""style=""background-color: black; position: absolute; margin-left: " + x + @"px; margin-top: " + y + @"px; width: " + w + @"px; height:" + h + @"px;""></div>";
         }
 
         public HomeController(ILogger<HomeController> logger)
@@ -54,7 +58,7 @@ namespace CanvasTemplate.Controllers
 
             foreach(Rectangle rectangle in data)
             {
-                s += RectangleFunction(rectangle.x, rectangle.y, rectangle.w, rectangle.h);
+                s += RectangleFunction(rectangle.x, rectangle.y, rectangle.w, rectangle.h, rectangle.id);
             }
 
             s += FOOTER;

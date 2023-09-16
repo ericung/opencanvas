@@ -5,13 +5,13 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Square</a>
+                <a class="nav-link" onclick="onSquare()">Square</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Text</a>
+                <a class="nav-link" onclick="onText()">Text</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Align</a>
+                <a class="nav-link" onclick="onAlign()">Align</a>
             </li>
         </ul>
     </nav>
@@ -23,6 +23,9 @@
             </div>
             <div>
                 <button type="submit" onclick="generate()">Generate</button>
+            </div>
+            <div>
+                <button type="submit" onclick="reverse()">Reverse Generate</button>
             </div>
         </div>
         <div class="col-md-6">
