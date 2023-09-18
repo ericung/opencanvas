@@ -27,10 +27,10 @@ function html2json(html) {
     for (let i = 0; i < divs.length; i++) {
         language.push({
             "id": divs[i].getAttribute("id"),
-            "width": divs[i].style.width,
-            "height": divs[i].style.height,
-            "marginLeft": divs[i].style.marginLeft,
-            "marginTop": divs[i].style.marginTop
+            "width": parseInt(divs[i].style.width,10),
+            "height": parseInt(divs[i].style.height,10),
+            "marginLeft": parseInt(divs[i].style.marginLeft,10),
+            "marginTop": parseInt(divs[i].style.marginTop,10)
         });
     }
 

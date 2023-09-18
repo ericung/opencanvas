@@ -4,7 +4,6 @@ var ctx = canvas.getContext("2d");
 ctx.font = "30px Arial";
 var x = 0;
 var y = 0;
-var message = "";
 var rects = [];
 
 canvas.addEventListener('mousemove', function (evt) {
@@ -59,7 +58,6 @@ if (area.addEventListener) {
 
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillText(message, 10, 50);
 
     for (var i = 0; i < rects.length; i++) {
         ctx.fillRect(rects[i].x, rects[i].y, rects[i].w, rects[i].h);
@@ -97,10 +95,10 @@ function reverse() {
     rects = [];
 
     for (let i = 0; i < jsonFromSrc.length; i++) {
-        var w = jsonFromSrc[i].width;
-        var h = jsonFromSrc[i].height;
         var x = jsonFromSrc[i].marginLeft;
         var y = jsonFromSrc[i].marginTop;
+        var w = jsonFromSrc[i].width;
+        var h = jsonFromSrc[i].height;
         rects.push({ x: x, y: y, w: w, h: h, id: i });
     }
 

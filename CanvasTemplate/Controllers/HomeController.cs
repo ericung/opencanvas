@@ -1,11 +1,7 @@
 ﻿using CanvasTemplate.Models;
-using Microsoft.Ajax.Utilities;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.FileSystemGlobbing.Internal;
 using Newtonsoft.Json;
 using System.Diagnostics;
-using System.Text.RegularExpressions;
-using System.Web.Helpers;
 
 namespace CanvasTemplate.Controllers
 {
