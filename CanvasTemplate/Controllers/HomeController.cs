@@ -24,6 +24,10 @@ namespace CanvasTemplate.Controllers
         {
             return @"<div id=""" + id + @"""style=""background-color: black; position: absolute; margin-left: " + x + @"px; margin-top: " + y + @"px; width: " + w + @"px; height:" + h + @"px;""></div>";
         }
+        private string SubmitFunction(double x, double y, double w, double h, int id)
+        {
+            return @"<input type=""button"" id=""" + id + @""" style=""position: absolute; left: " + x + @"px; top: " + y + @"px; width: " + w + @"px; height:" + h + @"px;""/>";
+        }
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -47,14 +51,21 @@ namespace CanvasTemplate.Controllers
         }
 
         [HttpPost]
-        public IActionResult Generate(string rectangles)
+        public IActionResult Generate(string rectangles, string submits)
         {
-            List<Rectangle> data = JsonConvert.DeserializeObject<List<Rectangle>>(rectangles ?? String.Empty) ?? new List<Rectangle>();
+            List<RectangleModel> rectanglesList = JsonConvert.DeserializeObject<List<RectangleModel>>(rectangles ?? String.Empty) ?? new List<RectangleModel>();
+            List<ButtonModel> submitList = JsonConvert.DeserializeObject<List<ButtonModel>>(submits ?? String.Empty) ?? new List<ButtonModel>();
+
             string s = HEADER;
 
-            foreach(Rectangle rectangle in data)
+            foreach(RectangleModel rectangle in rectanglesList)
             {
                 s += RectangleFunction(rectangle.x, rectangle.y, rectangle.w, rectangle.h, rectangle.id);
+            }
+
+            foreach(ButtonModel button in submitList)
+            {
+                s += SubmitFunction(button.x, button.y, button.w, button.h, button.id);
             }
 
             s += FOOTER;

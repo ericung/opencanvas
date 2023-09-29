@@ -6,7 +6,7 @@ var x = 0;
 var y = 0;
 var tool = "rectangle";
 var rects = [];
-var ellipses= [];
+var submits = [];
 
 canvas.addEventListener('mousemove', function (evt) {
     var mousePos = getMousePos(canvas, evt);
@@ -42,32 +42,26 @@ canvas.addEventListener('mouseup', function (evt) {
                 y = mousePos.y;
                 draw();
             }
-        case "circle":
+        case "submit":
             {
                 var mousePos = getMousePos(canvas, evt);
-
-                var radiusX = 0;
-                var radiusY = 0;
-                var rotation = Math.PI / 4;
-                var sAngle = 0;
-                var eAngle = 2 * Math.PI;
-                var idEllipses = ellipses.length;
-
-                // ellipses(x, y, radiusX, radiusY, rotation, startAngle, endAngle)
-                ellipses.push({ x: x, y: y, rX: radiusX, rY: radiusY, r: rotation, s: sAngle, e: eAngle, id: idEllipses });
-
+                var xPos = x;
+                var yPos = y;
+                var wVal = mousePos.x - x;
+                var hVal = mousePos.y - y;
+                var idRects = submits.length;
+                if (wVal < 0) {
+                    wVal = Math.abs(wVal);
+                    xPos = x - wVal;
+                }
+                if (hVal < 0) {
+                    hVal = Math.abs(hVal);
+                    yPos = y - hVal;
+                }
+                submits.push({ x: xPos, y: yPos, w: wVal, h: hVal, id: idRects });
                 x = mousePos.x;
                 y = mousePos.y;
-
                 draw();
-            }
-        case "text":
-            {
-
-            }
-        case "align":
-            {
-
             }
         default:
             break;
@@ -78,16 +72,8 @@ function onRectangle() {
     tool = "rectangle";
 }
 
-function onCircle() {
-    tool = "circle";
-}
-
-function onText() {
-    tool = "text";
-}
-
-function onAlign() {
-    tool = "align";
+function onSubmit() {
+    tool = "submit";
 }
 
 var area = document.getElementById("generatedHtml");
@@ -111,13 +97,13 @@ function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     for (var i = 0; i < rects.length; i++) {
+        ctx.fillStyle = "black";
         ctx.fillRect(rects[i].x, rects[i].y, rects[i].w, rects[i].h);
     }
 
-    for (var i = 0; i < ellipse.length; i++) {
-        ctx.beginPath();
-        ctx.ellipse(ellipses[i].x, ellipses[i].y, ellipses[i].rX, ellipses[i].rY, ellipses[i].r, ellipses[i].s, ellipses[i].e);
-        ctx.stroke();
+    for (var i = 0; i < submits.length; i++) {
+        ctx.fillStyle = "grey";
+        ctx.fillRect(submits[i].x, submits[i].y, submits[i].w, submits[i].h);
     }
 }
 
@@ -133,7 +119,10 @@ function generate() {
     $.ajax({
         method: "POST",
         url: "Home/Generate",
-        data: { rectangles: JSON.stringify(rects) }
+        data: {
+            rectangles: JSON.stringify(rects),
+            submits: JSON.stringify(submits)
+        }
     })
     .done(function(msg) {
         $('#generatedHtml').text(msg);

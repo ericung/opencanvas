@@ -1,6 +1,6 @@
 ﻿namespace CanvasTemplate.Models
 {
-    public class Rectangle
+    public class RectangleModel
     {
         public double x { get; set; }
         public double y { get; set; }
