@@ -1,6 +1,20 @@
 ﻿OpenCanvas
 
+![ObjectLanguage](Resources/Images/ObjectLanguage.png)
+
 ![Decidability](Resources/Images/decidability.png)
+
+![Verifiability](Resources/Images/Verifiability.png)
+
+![CanvasTemplateUI](Resources/Images/CanvasTemplateUI.png)
+
+![PvsNPDefinition](Resources/Images/PvsNPDefinition.png)
+
+![NPCompleteDefinition](Resources/Images/NPCompleteDefinition)
+
+![NPCompleteNPHard](Resources/Images/NPCompleteNPHard.png)
+
+![NPCompleteNPHardDefinitionPart2](Resources/IMages/NPCompleteNPHardDefinitionPart2.png)
 
 Calculating the axis of the ellipses: [ellipse](https://www.mathopenref.com/ellipseaxes.html).
 
