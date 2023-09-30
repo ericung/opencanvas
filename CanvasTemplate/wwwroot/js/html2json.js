@@ -22,6 +22,7 @@
 
 function html2json(html) {
     var divs = parseHTML(html).getElementsByTagName("div");
+    var inputs = parseHTML(html).getElementsByTagName("input");
     var language = [];
 
     for (let i = 0; i < divs.length; i++) {
@@ -31,8 +32,18 @@ function html2json(html) {
             "height": parseInt(divs[i].style.height,10),
             "marginLeft": parseInt(divs[i].style.marginLeft,10),
             "marginTop": parseInt(divs[i].style.marginTop,10)
+        })
+    };
+
+    for (let i = 0; i < inputs.length; i++) {
+        language.push({
+            "id": inputs[i].getAttribute("id"),
+            "width": parseInt(inputs[i].style.width, 10),
+            "height": parseInt(inputs[i].style.height, 10),
+            "marginLeft": parseInt(inputs[i].style.marginLeft, 10),
+            "marginTop": parseInt(inputs[i].style.marginTop, 10)
         });
-    }
+    };
 
     return language;
 }

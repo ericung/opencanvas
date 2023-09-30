@@ -7,6 +7,7 @@ var y = 0;
 var tool = "rectangle";
 var rects = [];
 var submits = [];
+var radio = [];
 
 canvas.addEventListener('mousemove', function (evt) {
     var mousePos = getMousePos(canvas, evt);
@@ -63,6 +64,27 @@ canvas.addEventListener('mouseup', function (evt) {
                 y = mousePos.y;
                 draw();
             }
+        case "radio":
+            {
+                var mousePos = getMousePos(canvas, evt);
+                var xPos = x;
+                var yPos = y;
+                var wVal = mousePos.x - x;
+                var hVal = mousePos.y - y;
+                var idRadio = radio.length;
+                if (wVal < 0) {
+                    wVal = Math.abs(wVal);
+                    xPos = x - wVal;
+                }
+                if (hVal < 0) {
+                    hVal = Math.abs(hVal);
+                    yPos = y - hVal;
+                }
+                radio.push({ x: xPos, y: yPos, w: wVal, h: hVal, id: idRadio });
+                x = mousePos.x;
+                y = mousePos.y;
+                draw();
+            }
         default:
             break;
     }
@@ -74,6 +96,10 @@ function onRectangle() {
 
 function onSubmit() {
     tool = "submit";
+}
+
+function onRadio() {
+    tool = "radio";
 }
 
 var area = document.getElementById("generatedHtml");
@@ -121,7 +147,8 @@ function generate() {
         url: "Home/Generate",
         data: {
             rectangles: JSON.stringify(rects),
-            submits: JSON.stringify(submits)
+            submits: JSON.stringify(submits),
+            radios: JSON.stringify(radio)
         }
     })
     .done(function(msg) {
@@ -139,6 +166,8 @@ function reverse() {
     const iframe = document.getElementById("renderedhtml");
     jsonFromSrc = html2json(iframe.srcdoc);
     rects = [];
+    submits = [];
+    radio = [];
 
     for (let i = 0; i < jsonFromSrc.length; i++) {
         var x = jsonFromSrc[i].marginLeft;

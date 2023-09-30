@@ -1,9 +1,10 @@
-﻿using CanvasTemplate.Models;
+﻿using OpenCanvas.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
-namespace CanvasTemplate.Controllers
+namespace OpenCanvas.Controllers
 {
     public class HomeController : Controller
     {
@@ -24,9 +25,15 @@ namespace CanvasTemplate.Controllers
         {
             return @"<div id=""" + id + @"""style=""background-color: black; position: absolute; margin-left: " + x + @"px; margin-top: " + y + @"px; width: " + w + @"px; height:" + h + @"px;""></div>";
         }
+
         private string SubmitFunction(double x, double y, double w, double h, int id)
         {
             return @"<input type=""button"" id=""" + id + @""" style=""position: absolute; left: " + x + @"px; top: " + y + @"px; width: " + w + @"px; height:" + h + @"px;""/>";
+        }
+
+        private string RadioFunction(double x, double y, double w, double h, int id)
+        {
+            return @"<input type=""radio"" name=""season"" value=""winter"" id=""" + id + @""" style=""position: absolute; left: " + x + @"px; top: " + y + @"px; width: " + w + @"px; height:" + h + @"px;"" checked><label for=""Radio"">Radio</label>";
         }
 
         public HomeController(ILogger<HomeController> logger)
@@ -51,10 +58,11 @@ namespace CanvasTemplate.Controllers
         }
 
         [HttpPost]
-        public IActionResult Generate(string rectangles, string submits)
+        public IActionResult Generate(string rectangles, string submits, string radios)
         {
             List<RectangleModel> rectanglesList = JsonConvert.DeserializeObject<List<RectangleModel>>(rectangles ?? String.Empty) ?? new List<RectangleModel>();
             List<ButtonModel> submitList = JsonConvert.DeserializeObject<List<ButtonModel>>(submits ?? String.Empty) ?? new List<ButtonModel>();
+            List<RadioButtonModel> radioList = JsonConvert.DeserializeObject<List<RadioButtonModel>>(radios ?? String.Empty) ?? new List<RadioButtonModel>();
 
             string s = HEADER;
 
@@ -66,6 +74,11 @@ namespace CanvasTemplate.Controllers
             foreach(ButtonModel button in submitList)
             {
                 s += SubmitFunction(button.x, button.y, button.w, button.h, button.id);
+            }
+
+            foreach(RadioButtonModel radio in radioList)
+            {
+                s += RadioFunction(radio.x, radio.y, radio.w, radio.h, radio.id);
             }
 
             s += FOOTER;

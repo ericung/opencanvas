@@ -8,7 +8,7 @@
     }
   },
   "profiles": {
-    "CanvasTemplate": {
+    "OpenCanvas": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
