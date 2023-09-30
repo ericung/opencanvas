@@ -1,4 +1,4 @@
-﻿namespace CanvasTemplate.Models
+﻿namespace OpenCanvas.Models
 {
     public class ButtonModel
     {
