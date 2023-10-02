@@ -24,7 +24,17 @@ Sketches of the P vs NP Problem
 
 GameMaker: [GameMaker](https://en.wikipedia.org/wiki/GameMaker).
 
+Mapping strings to 3D: [Icon OpenGL Prototype](https://github.com/ericung/icon-opengl).
+
 Theory of Computation by Michael Sipser: [Theory of Computer](https://en.wikipedia.org/wiki/Introduction_to_the_Theory_of_Computation).
+
+P(complexity): [P Complexity](https://en.wikipedia.org/wiki/P_(complexity)).
+
+NP(complexity): [NP Complexity](https://en.wikipedia.org/wiki/NP_(complexity)).
+
+NP Completeness: [NP Completeness](https://en.wikipedia.org/wiki/NP-completeness).
+
+NP Hardness: [NP Hardness](https://en.wikipedia.org/wiki/NP-hardness).
 
 # License
 
