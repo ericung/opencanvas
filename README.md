@@ -4,7 +4,7 @@ Sketches of the P vs NP Problem
 
 ![CanvasTemplateUI](OpenCanvas/Resources/Images/CanvasTemplateUI.png)
 
-![CanvasTemplateUI](OpenCanvas/Resources/Images/CanvasTemplateUIFuturePlans.png)
+![CanvasTemplateUI Future Plans](OpenCanvas/Resources/Images/CanvasTemplateUIFuturePlans.png)
 
 ![ObjectLanguage](OpenCanvas/Resources/Images/ObjectLanguage.png)
 
