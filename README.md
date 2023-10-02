@@ -1,20 +1,24 @@
 ﻿###OpenCanvas
 
-![CanvasTemplateUI](Resources/Images/CanvasTemplateUI.png)
+![CanvasTemplateUI](OpenCanvas/Resources/Images/CanvasTemplateUI.png)
 
-![ObjectLanguage](Resources/Images/ObjectLanguage.png)
+![ObjectLanguage](OpenCanvas/Resources/Images/ObjectLanguage.png)
 
-![Decidability](Resources/Images/decidability.png)
+![Decidability](OpenCanvas/Resources/Images/decidability.png)
 
-![Verifiability](Resources/Images/Verifiability.png)
+![Verifiability](OpenCanvas/Resources/Images/Verifiability.png)
 
-![PvsNPDefinition](Resources/Images/PvsNPDefinition.png)
+![PvsNPDefinition](OpenCanvas/Resources/Images/PvsNPDefinition.png)
 
-![NPCompleteDefinition](Resources/Images/NPCompleteDefinition)
+![NPCompleteDefinition](OpenCanvas/Resources/Images/NPCompleteDefinition)
 
-![NPCompleteNPHard](Resources/Images/NPCompleteNPHard.png)
+![NPCompleteNPHard](OpenCanvas/Resources/Images/NPCompleteNPHard.png)
 
-![NPCompleteNPHardDefinitionPart2](Resources/Images/NPCompleteNPHardDefinitionPart2.png)
+![NPCompleteNPHardDefinitionPart2](OpenCanvas/Resources/Images/NPCompleteNPHardDefinitionPart2.png)
+
+#References
+
+GameMaker: [GameMaker](https://en.wikipedia.org/wiki/GameMaker).
 
 Calculating the axis of the ellipses: [ellipse](https://www.mathopenref.com/ellipseaxes.html).
 
