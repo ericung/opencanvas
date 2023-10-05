@@ -1,5 +1,7 @@
 ﻿# OpenCanvas
 
+Have you ever wondered what makes something computable and what makes something not computable? Here's some sketches to show you what scientists and researchers know about what is possible.
+
 Sketches of the P vs NP Problem
 
 ![CanvasTemplateUI](OpenCanvas/Resources/Images/CanvasTemplateUI.png)
@@ -23,6 +25,8 @@ Sketches of the P vs NP Problem
 # References
 
 Neopets [Neopets](https://en.wikipedia.org/wiki/Neopets)
+
+Angelfire [Angelfire](https://en.wikipedia.org/wiki/Angelfire)
 
 GameMaker: [GameMaker](https://en.wikipedia.org/wiki/GameMaker).
 
