@@ -22,6 +22,8 @@ Sketches of the P vs NP Problem
 
 # References
 
+Neopets [Neopets](https://en.wikipedia.org/wiki/Neopets)
+
 GameMaker: [GameMaker](https://en.wikipedia.org/wiki/GameMaker).
 
 Mapping strings to 3D: [Icon OpenGL Prototype](https://github.com/ericung/icon-opengl).
@@ -38,7 +40,7 @@ NP Hardness: [NP Hardness](https://en.wikipedia.org/wiki/NP-hardness).
 
 # License
 
-Copyright (c) <year> <copyright holders>
+Copyright (c) 2023 Eric Ung
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
