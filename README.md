@@ -22,6 +22,10 @@ Sketches of the P vs NP Problem
 
 ![NPCompleteNPHardDefinitionPart2](OpenCanvas/Resources/Images/NPCompleteNPHardDefintionPart2.png)
 
+![Valiant's Machine Learning Model](OpenCanvas/Resources/Images/valintsmachinelearning.png)
+
+![Languages to Express](OpenCanvas/Resources/Images/ThinkingOutOfTheBox.png)
+
 # References
 
 Neopets [Neopets](https://en.wikipedia.org/wiki/Neopets)
@@ -41,6 +45,13 @@ NP(complexity): [NP Complexity](https://en.wikipedia.org/wiki/NP_(complexity)).
 NP Completeness: [NP Completeness](https://en.wikipedia.org/wiki/NP-completeness).
 
 NP Hardness: [NP Hardness](https://en.wikipedia.org/wiki/NP-hardness).
+
+PAC Learning: [PAC Learning](http://web.mit.edu/6.435/www/Valiant84.pdf).
+
+Lindenmayer System: [Lindenmayer System](https://en.wikipedia.org/wiki/L-system).
+
+Topology: [Topology](https://openlibrary.org/books/OL49636M/Topology).
+
 
 # License
 
